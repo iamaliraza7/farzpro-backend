@@ -12,9 +12,6 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install gunicorn
-RUN pip install gunicorn
-
 # Copy the project files into the container
 COPY . /app/
 
@@ -27,5 +24,5 @@ RUN python manage.py collectstatic --noinput
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "fazpro.wsgi:application"]
+# Command to run the application using Django's development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
