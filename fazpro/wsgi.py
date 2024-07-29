@@ -1,5 +1,5 @@
 """
-WSGI config for farzpro project.
+WSGI config for fazpro project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'farzpro.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fazpro.settings')
 
 application = get_wsgi_application()
