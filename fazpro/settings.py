@@ -82,6 +82,12 @@ WSGI_APPLICATION = 'fazpro.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+print('--name--', os.environ.get('FP_DATABASE_NAME'))
+print('--user--', os.environ.get('FP_DATABASE_USER'))
+print('--password--', os.environ.get('FP_DATABASE_PASS'))
+print('--host--', os.environ.get('FP_DATABASE_HOST'))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
