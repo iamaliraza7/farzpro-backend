@@ -21,6 +21,9 @@ RUN mkdir -p /app/staticfiles
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+# migrate changes in db
+RUN python manage.py migrate
+
 # Expose the port the app runs on
 EXPOSE 8000
 
