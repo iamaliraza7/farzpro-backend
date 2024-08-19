@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'storages',
     'rest_framework',
     'rest_framework_simplejwt',
-    'users'
+    'users',
+    'drf_standardized_errors'
 ]
 
 MIDDLEWARE = [
@@ -54,11 +55,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTH_USER_MODEL = "users.User"
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ],
+    'DEFAULT_RENDERER_CLASSES': (
+        'configs.responses.SuccessJResponse',
+    ),
+    "EXCEPTION_HANDLER": "drf_standardized_errors.handler.exception_handler",
 }
+
+DRF_STANDARDIZED_ERRORS = {"EXCEPTION_FORMATTER_CLASS": "configs.exception_handler.MyExceptionFormatter"}
 
 ROOT_URLCONF = 'fazpro.urls'
 
